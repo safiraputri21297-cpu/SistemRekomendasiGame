@@ -35,3 +35,17 @@ def merge(left, right):
     result.extend(right[j:])
 
     return result
+
+def selection_sort_title(games):
+    n = len(games)
+
+    for i in range(n):
+        min_index = i
+
+        for j in range(i + 1, n):
+            if games[j].judul < games[min_index].judul:
+                min_index = j
+
+        games[i], games[min_index] = games[min_index], games[i]
+
+    return games
