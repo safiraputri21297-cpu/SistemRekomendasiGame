@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from game import Game
 from searching import linear_search
-from recommendation import recommend_games
+from recommendation import recommended_games
 from linked_list import Wishlist
 from stack_queue import Stack, Queue
 from sorting import quick_sort_rating
