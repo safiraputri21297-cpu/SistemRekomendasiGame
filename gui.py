@@ -175,6 +175,15 @@ class GameMatchGUI:
             self.output.delete(1.0, tk.END)
             self.output.insert(tk.END, "Rating harus angka dan Harga harus bilangan bulat.")
             return
+        
+        if not (0 < rating <= 10):
+            self.output.delete(1.0, tk.END)
+            self.output.insert(tk.END, "Rating harus lebih dari 0 dan paling banyak 10.")
+            return
+        if price <= 0:
+            self.output.delete(1.0, tk.END)
+            self.output.insert(tk.END, "Harga harus lebih dari 0 (tidak boleh negatif atau nol).")
+            return
 
         self.games.append(Game(judul, genre, rating, price))
         self.output.delete(1.0, tk.END)
@@ -202,18 +211,28 @@ class GameMatchGUI:
             game.genre = genre
         if rating_text:
             try:
-                game.rating = float(rating_text)
+                new_rating = float(rating_text)
             except ValueError:
                 self.output.delete(1.0, tk.END)
                 self.output.insert(tk.END, "Rating harus angka.")
                 return
+            if not (0 < new_rating <= 10):
+                self.output.delete(1.0, tk.END)
+                self.output.insert(tk.END, "Rating harus lebih dari 0 dan paling banyak 10!")
+                return
+            game.rating = new_rating
         if price_text:
             try:
-                game.price = int(price_text)
+                new_price = int(price_text)
             except ValueError:
                 self.output.delete(1.0, tk.END)
                 self.output.insert(tk.END, "Harga harus bilangan bulat.")
                 return
+            if new_price <= 0:
+                self.output.delete(1.0, tk.END)
+                self.output.insert(tk.END, "Harga harus lebih dari 0 (tidak boleh negatif atau nol).")
+                return
+            game.harga = new_price
 
         self.output.delete(1.0, tk.END)
         self.output.insert(tk.END, f"Game '{judul}' berhasil diperbarui.\n\n")
@@ -246,7 +265,7 @@ class GameMatchGUI:
         if game:
             if not getattr(game, 'downloaded', False):
                 self.output.delete(1.0, tk.END)
-                self.output.insert(tk.END, "Game belum di-download! Silakan download terlebih dahulu.")
+                self.output.insert(tk.END, "Game belum di download! Silakan download terlebih dahulu.")
                 return
             self.recent_stack.push(game.judul)
 
