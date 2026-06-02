@@ -3,6 +3,6 @@ from gui import GameMatchGUI
 
 root = tk.Tk()
 
-app = GameMatchGUI
+app = GameMatchGUI(root)
 
 root.mainloop()
