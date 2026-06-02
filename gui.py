@@ -88,6 +88,8 @@ class GameMatchGUI:
         tk.Button(button_frame, text="Mainkan Game", width=14, bg=button_bg, activebackground=active_bg, command=self.play_game).grid(row=1, column=0, padx=4, pady=4)
         tk.Button(button_frame, text="Tampil Tersortir", width=14, bg=button_bg, activebackground=active_bg, command=self.display_sorted_games).grid(row=1, column=1, padx=4, pady=4)
         tk.Button(button_frame, text="Keluar", width=14, bg="#b3d9ff", activebackground=active_bg, command=self.root.quit).grid(row=1, column=2, padx=4, pady=4)
+        tk.Button(button_frame, text="Unduhan", width=14, bg=button_bg, activebackground=active_bg, command=self.display_downloaded_games).grid(row=1, column=3, padx=4, pady=4)
+        tk.Button(button_frame, text="Tambah Game", width=14, bg=button_bg, activebackground=active_bg, command=self.add_game).grid(row=2, column=0, padx=4, pady=4)
         tk.Button(button_frame, text="Tambah Game", width=14, bg=button_bg, activebackground=active_bg, command=self.add_game).grid(row=2, column=0, padx=4, pady=4)
         tk.Button(button_frame, text="Update Game", width=14, bg=button_bg, activebackground=active_bg, command=self.update_game).grid(row=2, column=1, padx=4, pady=4)
         tk.Button(button_frame, text="Hapus Game", width=14, bg=button_bg, activebackground=active_bg, command=self.delete_game).grid(row=2, column=2, padx=4, pady=4)
@@ -258,3 +260,11 @@ class GameMatchGUI:
         else:
             self.output.delete(1.0, tk.END)
             self.output.insert(tk.END, "Game tidak ditemukan!")
+
+    def display_downloaded_games(self):
+        downloaded = [game.display() for game in self.games if getattr(game, 'downloaded', False)]
+        if downloaded:
+            self._display_list("=== GAME YANG SUDAH DI DOWNLOAD ===\n\n", downloaded)
+        else:
+            self.output.delete(1.0, tk.END)
+            self.output.insert(tk.END, "Belum ada game yang di download.")
