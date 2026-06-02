@@ -40,7 +40,6 @@ class GameMatchGUI:
             Game("Terraria", "Sandbox", 8.9, 90000),
             Game("Overwatch", "FPS", 8.4, 0),
             Game("Dark Souls III", "Rogue-like", 9.1, 25000),
-            Game("The Legend of Zelda: Breath of the Wild", "Action RPG", 9.2, 30000),
             Game("Mobile Legends", "MOBA", 8.0, 0),
             Game("Vainglory", "MOBA", 7.8, 0),
             Game("Resident Evil 4 Remake", "Action", 9.6, 35000),
