@@ -6,7 +6,8 @@ class Stack:
     self.daftar_item.append(item)
 
   def pop (self):
-    if self.daftar_item.pop()
+    if self.daftar_item:
+      return self.daftar_item.pop(0)
 
   def display(self):
     return self.daftar_item
@@ -19,7 +20,8 @@ class Queue:
     self.daftar_item.append(item)
 
   def dequeue(self):
-    if self.daftar_item.pop(0)
+    if self.daftar_item:
+      return self.daftar_item.pop(0)
 
   def display(self):
     return self.daftar_item
