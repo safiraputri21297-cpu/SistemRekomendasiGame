@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from game import Game
 from searching import linear_search
-from recommendation import recommended_games
+from rekomendasi import rekomendasi_games
 from linked_list import Wishlist
 from stack_queue import Stack, Queue
 from sorting import quick_sort_rating
@@ -120,7 +120,7 @@ class GameMatchGUI:
 
     def recommend(self):
         genre = self.genre_entry.get()
-        recommended = recommend_games(self.games, genre)
+        recommended = rekomendasi_games(self.games, genre)
 
         self._display_list(f"=== REKOMENDASI GENRE {genre} ===\n\n", [game.display() for game in recommended])
 

@@ -1,5 +1,5 @@
 from sorting import quick_sort_rating
-def recommended_games(games, genre):
+def rekomendasi_games(games, genre):
   recommended = []
 
   for game in games:
