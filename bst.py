@@ -15,7 +15,7 @@ class BST:
             self._insert(self.root, game)
 
     def _insert(self, node, game):
-        if game.title.lower() < node.game.title.lower():
+        if game.judul.lower() < node.game.judul.lower():
             if node.left is None:
                 node.left = BSTNode(game)
             else:
@@ -34,10 +34,10 @@ class BST:
         if node is None:
             return None
 
-        if node.game.title.lower() == title.lower():
+        if node.game.judul.lower() == title.lower():
             return node.game
 
-        if title.lower() < node.game.title.lower():
+        if title.lower() < node.game.judul.lower():
             return self._search(node.left, title)
 
         return self._search(node.right, title)
