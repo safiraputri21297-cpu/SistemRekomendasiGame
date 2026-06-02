@@ -40,6 +40,7 @@ class GameMatchGUI:
             Game("Terraria", "Sandbox", 8.9, 90000),
             Game("Overwatch", "FPS", 8.4, 0),
             Game("Dark Souls III", "Rogue-like", 9.1, 25000),
+            Game("The Legend of Zelda: Breath of the Wild", "Action RPG", 9.2, 30000),
             Game("Mobile Legends", "MOBA", 8.0, 0),
             Game("Vainglory", "MOBA", 7.8, 0),
             Game("Resident Evil 4 Remake", "Action", 9.6, 35000),
@@ -93,7 +94,7 @@ class GameMatchGUI:
         tk.Button(button_frame, text="Update Game", width=14, bg=button_bg, activebackground=active_bg, command=self.update_game).grid(row=2, column=1, padx=4, pady=4)
         tk.Button(button_frame, text="Hapus Game", width=14, bg=button_bg, activebackground=active_bg, command=self.delete_game).grid(row=2, column=2, padx=4, pady=4)
 
-        self.output = tk.Text(self.root, width=80, height=20, bg="#ffffff", fg="#003366")
+        self.output = tk.Text(self.root, width=90, height=25, bg="#ffffff", fg="#003366")
         self.output.pack(padx=10, pady=10)
 
     def _clear_output(self):
