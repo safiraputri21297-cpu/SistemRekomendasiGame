@@ -143,6 +143,11 @@ class GameMatchGUI:
         game = self._selected_game()
 
         if game:
+            if getattr(game, 'downloaded', False):
+                self.output.delete(1.0, tk.END)
+                self.output.insert(tk.END, "Game sudah di download!")
+                return
+
             self.download_queue.enqueue(game.judul)
             if hasattr(game, 'download'):
                 game.download()
