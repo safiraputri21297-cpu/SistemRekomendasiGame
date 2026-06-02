@@ -144,7 +144,11 @@ class GameMatchGUI:
 
         if game:
             self.download_queue.enqueue(game.judul)
+            if hasattr(game, 'download'):
+                game.download()
+
             self._display_list("=== DOWNLOAD QUEUE ===\n\n", self.download_queue.display())
+            self.output.insert(tk.END, f"\nGame '{game.judul}' berhasil di-download.\n")
 
     def add_game(self):
         judul = self.title_entry.get().strip()
@@ -233,6 +237,10 @@ class GameMatchGUI:
         game = linear_search(self.games, judul)
 
         if game:
+            if not getattr(game, 'downloaded', False):
+                self.output.delete(1.0, tk.END)
+                self.output.insert(tk.END, "Game belum di-download! Silakan download terlebih dahulu.")
+                return
             self.recent_stack.push(game.judul)
 
             self.output.delete(1.0, tk.END)
